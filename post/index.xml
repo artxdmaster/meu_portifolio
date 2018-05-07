@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Hugo tranquilpeak theme</title>
+    <link>https://artxdmaster.github.io/post/</link>
+    <description>Recent content in Posts on Hugo tranquilpeak theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://artxdmaster.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AD1 - Dados sobre séries de TV</title>
+      <link>https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/</guid>
+      <description>Para a realização dessa análise, utilizaremos os dados das seguintes séries: The Walking Dead, Archer e The Office.
+dados = read_csv(here(&amp;quot;data/series_from_imdb.csv&amp;quot;), progress = FALSE, col_types = cols(.default = col_double(), series_name = col_character(), episode = col_character(), url = col_character(), season = col_character())) dados = dados %&amp;gt;% filter(series_name %in% c(&amp;quot;The Walking Dead&amp;quot;, &amp;quot;Archer&amp;quot;, &amp;quot;The Office&amp;quot;))  Série mais bem avaliada? Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.</description>
+    </item>
+    
+  </channel>
+</rss>

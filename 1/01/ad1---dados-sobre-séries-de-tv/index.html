@@ -1,0 +1,663 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.40.2 with theme Tranquilpeak 0.4.3-BETA">
+    <title>AD1 - Dados sobre séries de TV</title>
+    <meta name="author" content="Arthur Rodrigues">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://artxdmaster.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="Para a realização dessa análise, utilizaremos os dados das seguintes séries: The Walking Dead, Archer e The Office.
+dados = read_csv(here(&quot;data/series_from_imdb.csv&quot;), progress = FALSE, col_types = cols(.default = col_double(), series_name = col_character(), episode = col_character(), url = col_character(), season = col_character())) dados = dados %&gt;% filter(series_name %in% c(&quot;The Walking Dead&quot;, &quot;Archer&quot;, &quot;The Office&quot;))  Série mais bem avaliada? Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.">
+    <meta property="og:description" content="Para a realização dessa análise, utilizaremos os dados das seguintes séries: The Walking Dead, Archer e The Office.
+dados = read_csv(here(&quot;data/series_from_imdb.csv&quot;), progress = FALSE, col_types = cols(.default = col_double(), series_name = col_character(), episode = col_character(), url = col_character(), season = col_character())) dados = dados %&gt;% filter(series_name %in% c(&quot;The Walking Dead&quot;, &quot;Archer&quot;, &quot;The Office&quot;))  Série mais bem avaliada? Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="AD1 - Dados sobre séries de TV">
+    <meta property="og:url" content="/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+    <meta property="og:site_name" content="Hugo tranquilpeak theme">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hugo tranquilpeak theme">
+    <meta name="twitter:description" content="Para a realização dessa análise, utilizaremos os dados das seguintes séries: The Walking Dead, Archer e The Office.
+dados = read_csv(here(&quot;data/series_from_imdb.csv&quot;), progress = FALSE, col_types = cols(.default = col_double(), series_name = col_character(), episode = col_character(), url = col_character(), season = col_character())) dados = dados %&gt;% filter(series_name %in% c(&quot;The Walking Dead&quot;, &quot;Archer&quot;, &quot;The Office&quot;))  Série mais bem avaliada? Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/a5698ca74dad396163fe48ebc9df9805?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://artxdmaster.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://artxdmaster.github.io/">Hugo tranquilpeak theme</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://artxdmaster.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/a5698ca74dad396163fe48ebc9df9805?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://artxdmaster.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/a5698ca74dad396163fe48ebc9df9805?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Arthur Rodrigues</h4>
+        
+          <h5 class="sidebar-profile-bio">Super bio with markdown support <strong>COOL</strong></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://artxdmaster.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      AD1 - Dados sobre séries de TV
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="0001-01-01T00:00:00Z">
+        
+  January 1, 1
+
+      </time>
+    
+    
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Para a realização dessa análise, utilizaremos os dados das seguintes séries: <em>The Walking Dead</em>, <em>Archer</em> e <em>The Office</em>.</p>
+<pre class="r"><code>dados = read_csv(here(&quot;data/series_from_imdb.csv&quot;), 
+                    progress = FALSE,
+                    col_types = cols(.default = col_double(), 
+                                     series_name = col_character(), 
+                                     episode = col_character(), 
+                                     url = col_character(),
+                                     season = col_character()))
+
+dados = dados %&gt;% filter(series_name %in% c(&quot;The Walking Dead&quot;, &quot;Archer&quot;, &quot;The Office&quot;)) </code></pre>
+<div id="serie-mais-bem-avaliada" class="section level2">
+<h2>Série mais bem avaliada?</h2>
+<p>Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.</p>
+<p>Temos, para cada série, a nota dada pelos usuários em cada episódio. Vamos definir a <strong>média</strong> dessas notas (para a série como um todo) como método de comparação entre as séries.</p>
+<pre class="r"><code>dados %&gt;%
+    group_by(series_name) %&gt;% 
+    summarise(media = mean(user_rating))</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   series_name      media
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Archer            8.09
+## 2 The Office        8.27
+## 3 The Walking Dead  8.32</code></pre>
+<p>Podemos ver que a série mais bem avaliada foi <em>The Walking Dead</em>, com uma média de ~8.32.</p>
+<p>No entanto, a diferença entre a avaliação geral das séries é bem pequena, tendo <em>Archer</em> (a pior avaliada) apenas 0.23 pontos a menos em sua média.</p>
+<div id="e-em-relacao-a-cada-temporada" class="section level3">
+<h3>E em relação a cada temporada?</h3>
+<p>Até agora só avaliamos as séries como um todo, mas sempre há episódios/temporadas que se destacam entre os outros, que marcam os fãs das séries.</p>
+<p>Então, analisando mais profundamente, será que esse ranking se mantém ao longo das temporadas?</p>
+<pre class="r"><code>avaliacao_temporadas = dados %&gt;%
+                       group_by(series_name, season) %&gt;% 
+                       summarise(media = mean(user_rating))
+
+avaliacao_temporadas %&gt;% 
+    ggplot(aes(x = season, y = media, color = series_name)) + 
+    ggtitle(&quot;Avaliação das séries ao longo das temporadas&quot;) +
+    theme(plot.title = element_text(color=&quot;red&quot;, size=14, face=&quot;bold.italic&quot;)) +
+    geom_line(aes(colour=series_name, group=series_name)) + 
+    geom_point() +
+    labs(x = &quot;Temporada&quot;, y = &quot;Média&quot;, color = &quot;Série&quot;)</code></pre>
+<p><img src="https://artxdmaster.github.io/post/Checkpoint1_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>É fácil perceber a grande variação da avaliação das séries ao decorrer das temporadas.</p>
+<p>Nas duas primeiras temporadas, a avaliação está de acordo com o que havíamos calculado antes (Melhor: The Walking Dead, Médio: The Office, Pior: Archer). Porém, a partir da terceira temporada, o cenário começa a mudar.</p>
+<p>Dados interessantes:</p>
+<pre><code>- Há uma grande queda da avaliação de The Walking Dead em sua última temporada.
+- The Office também apresenta uma grande queda a partir da quinta temporada.
+- Archer possui a avaliação com menor variação no decorrer das temporadas.</code></pre>
+</div>
+</div>
+<div id="irregularidade-na-qualidade-dos-episodios" class="section level2">
+<h2>Irregularidade na qualidade dos episódios</h2>
+<p>Será que a avaliação das séries varia muito ao decorrer dos episódios? Vamos analisar isso para cada série separadamente.</p>
+<pre class="r"><code>av_archer = dados %&gt;%
+                       filter(series_name == &quot;Archer&quot;) %&gt;%
+                       group_by(series_name, series_ep) %&gt;% 
+                       summarise(media = mean(user_rating))
+
+av_archer %&gt;% 
+    ggplot(aes(x = series_ep, y = media)) + 
+    ggtitle(&quot;Avaliação da série Archer&quot;) +
+    theme(plot.title = element_text(color=&quot;red&quot;, size=14, face=&quot;bold.italic&quot;)) +
+    geom_line() + 
+    geom_point() +
+    labs(x = &quot;Episódio&quot;, y = &quot;Média&quot;)</code></pre>
+<p><img src="https://artxdmaster.github.io/post/Checkpoint1_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>av_the_office = dados %&gt;%
+                       filter(series_name == &quot;The Office&quot;) %&gt;%
+                       group_by(series_name, series_ep) %&gt;% 
+                       summarise(media = mean(user_rating))
+
+av_the_office %&gt;% 
+    ggplot(aes(x = series_ep, y = media)) + 
+    ggtitle(&quot;Avaliação da série The Office&quot;) +
+    theme(plot.title = element_text(color=&quot;red&quot;, size=14, face=&quot;bold.italic&quot;)) +
+    geom_line() + 
+    geom_point() +
+    labs(x = &quot;Episódio&quot;, y = &quot;Média&quot;)</code></pre>
+<p><img src="https://artxdmaster.github.io/post/Checkpoint1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>av_the_walking_dead = dados %&gt;%
+                       filter(series_name == &quot;The Walking Dead&quot;) %&gt;%
+                       group_by(series_name, series_ep) %&gt;% 
+                       summarise(media = mean(user_rating))
+
+av_the_walking_dead %&gt;% 
+    ggplot(aes(x = series_ep, y = media)) + 
+    ggtitle(&quot;Avaliação da série The Walking Dead&quot;) +
+    theme(plot.title = element_text(color=&quot;red&quot;, size=14, face=&quot;bold.italic&quot;)) +
+    geom_line() + 
+    geom_point() +
+    labs(x = &quot;Episódio&quot;, y = &quot;Média&quot;)</code></pre>
+<p><img src="https://artxdmaster.github.io/post/Checkpoint1_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Podemos facilmente concluir que a avaliação das 3 séries possui uma recorrente variação ao decorrer dos episódios, sendo <em>The Walking Dead</em> a que apresenta maior variação/irregularidade, tendo como nota máxima quase 10, e nota mínima abaixo de 6.</p>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Arthur Rodrigues. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fartxdmaster.github.io%2F1%2F01%2Fad1---dados-sobre-s%25C3%25A9ries-de-tv%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fartxdmaster.github.io%2F1%2F01%2Fad1---dados-sobre-s%25C3%25A9ries-de-tv%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fartxdmaster.github.io%2F1%2F01%2Fad1---dados-sobre-s%25C3%25A9ries-de-tv%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/a5698ca74dad396163fe48ebc9df9805?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Arthur Rodrigues</h4>
+    
+      <div id="about-card-bio">Super bio with markdown support <strong>COOL</strong></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Your job title
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Brazil
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/">
+                <h3 class="media-heading">AD1 - Dados sobre séries de TV</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jan 1, 0001
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Para a realização dessa análise, utilizaremos os dados das seguintes séries: The Walking Dead, Archer e The Office.
+dados = read_csv(here(&quot;data/series_from_imdb.csv&quot;), progress = FALSE, col_types = cols(.default = col_double(), series_name = col_character(), episode = col_character(), url = col_character(), season = col_character())) dados = dados %&gt;% filter(series_name %in% c(&quot;The Walking Dead&quot;, &quot;Archer&quot;, &quot;The Office&quot;))  Série mais bem avaliada? Desejamos saber qual das séries escolhidas é a mais bem avaliada no IMDB.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         1 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://artxdmaster.github.io/images/cover.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://artxdmaster.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/artxdmaster.github.io\/1\/01\/ad1---dados-sobre-s%C3%A9ries-de-tv\/';
+          
+            this.page.identifier = '\/1\/01\/ad1---dados-sobre-s%C3%A9ries-de-tv\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

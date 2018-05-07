@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://artxdmaster.github.io/1/01/ad1---dados-sobre-s%C3%A9ries-de-tv/</loc>
+  </url>
+  
+  <url>
+    <loc>https://artxdmaster.github.io/archives/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://artxdmaster.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://artxdmaster.github.io/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://artxdmaster.github.io/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://artxdmaster.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
